@@ -11,7 +11,7 @@
     <main>
         <nav>
             <div class="left">Todo Board</div>
-            <div class="right"><button>Add Task</button></div>
+            <div class="right"><button id="toggle-modal">Add Task</button></div>
         </nav>
 
         <section class="board">
@@ -19,11 +19,6 @@
                 <div class="heading">
                     <div class="left">Todo</div>
                     <div class="right">count</div>
-                </div>
-                <div draggable="true" class="task">
-                    <h2>Task 1</h2>
-                    <p>Description for Task 1</p>
-                    <button>Delete</button>
                 </div>
             </div>
             <div id="progress" class="task-column">
@@ -40,6 +35,15 @@
             </div>
         </section>
     </main>
+
+    <div class="modal  add-new-task">
+        <div class="bg"></div>
+        <div class="center">
+            <input type="text" placeholder="Task Title" id="task-title">
+            <textarea placeholder="Task Description" id="task-description"></textarea>
+            <button id="add-task-btn" class="add-task-btn">Add Task</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

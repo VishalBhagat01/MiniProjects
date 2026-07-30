@@ -4,9 +4,111 @@
     box-sizing: border-box;
 }
 
-html ,body {
-    height: 100%;
+:root {
+    /* =========================
+       Colors
+    ========================= */
+    --bg-primary-color: #0c0c0c;
+    --bg-secondary-color: #1a1a1a;
+    --bg-fill-color: #f3e6e6;
+    --bg-button-color: #2e2b2b;
+    --bg-task-color: #3a3a3a;
+    --bg-delete-color: #ff4d4d;
+    --bg-input-color: rgb(55, 54, 54);
+    --bg-modal-overlay: rgba(31, 31, 31, 0.5);
+
+    --text-primary-color: #f0f0f0;
+    --text-secondary-color: #bdbdbd;
+    --text-muted-color: #8f8f8f;
+
+    --border-primary-color: #333333;
+    --border-secondary-color: #555555;
+    --border-hover-color: #ffffff;
+
+    /* =========================
+       Typography
+    ========================= */
+    --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+    --font-xs: 0.75rem;
+    --font-sm: 0.875rem;
+    --font-md: 1rem;
+    --font-lg: 1.25rem;
+    --font-xl: 1.5rem;
+    --font-2xl: 2rem;
+
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* =========================
+       Spacing
+    ========================= */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 40px;
+
+    /* =========================
+       Border Radius
+    ========================= */
+    --border-radius-xs: 4px;
+    --border-radius-sm: 8px;
+    --border-radius-md: 16px;
+    --border-radius-lg: 24px;
+    --border-radius-xl: 32px;
+
+    /* =========================
+       Shadows
+    ========================= */
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 6px 15px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.4);
+
+    /* =========================
+       Layout
+    ========================= */
+    --nav-padding: var(--spacing-md);
+    --section-padding: var(--spacing-lg);
+    --task-padding: var(--spacing-md);
+    --modal-padding: var(--spacing-2xl);
+    --button-padding-y: var(--spacing-sm);
+    --button-padding-x: var(--spacing-md);
+
+    /* =========================
+       Animation
+    ========================= */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    --scale-hover: 1.05;
+    --blur-modal: 5px;
+
+    /* =========================
+       Z Index
+    ========================= */
+    --z-modal: 100;
+    --z-modal-content: 101;
+}
+
+html,
+body {
     width: 100%;
+    height: 100%;
+}
+
+html {
+    font-family: var(--font-family);
+}
+
+body {
+    background-color: var(--bg-primary-color);
+    color: var(--text-primary-color);
 }
 
 main {
@@ -15,122 +117,205 @@ main {
     flex-direction: column;
 }
 
-:root{
-    --bg-primary-color: #0c0c0c;
-    --bg-secondary-color: #1a1a1a;
-    --bg-fill-color: #f3e6e6;
-    --text-primary-color: #f0f0f0;  
-    --bg-button-color: #2e2b2b;
-    --bg-task-color: #3a3a3a;
-    --bg-delete-color: #ff4d4d;
 
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 32px;
-    --spacing-2xl: 40px;
-
-    --border-primary-color: #333333;
-
-    --border-radius-xs: 4px;
-    --border-radius-sm: 8px;
-    --border-radius-md: 16px;
-    --border-radius-lg: 24px;
-    --border-radius-xl: 32px;
-
-    --nav-padding: var(--spacing-md);
-    --section-padding: var(--spacing-lg);
-
-}
-
-html {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-color: var(--bg-primary-color);
-    color: var(--text-primary-color);
-}
 
 nav {
-    padding: var(--nav-padding);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: var(--nav-padding);
 }
 
 nav .left {
-    font-size: 2rem;
-    font-weight: bold;
-    gap: var(--spacing-md);
+    font-size: var(--font-2xl);
+    font-weight: var(--font-bold);
     padding-left: var(--spacing-md);
 }
 
 nav button {
     background-color: var(--bg-button-color);
+    color: var(--text-primary-color);
     border: none;
     outline: none;
-    color: var(--text-primary-color);
-    padding: var(--spacing-sm) var(--spacing-md);
-    cursor: pointer;
+    padding: var(--button-padding-y) var(--button-padding-x);
     border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: var(--transition-fast);
 }
+
+nav button:hover {
+    filter: brightness(1.15);
+}
+
+
 
 section {
-    padding: var(--section-padding);
+    flex: 1;
     display: flex;
-    justify-content: space-between;
-    flex-grow: 1;
     gap: var(--spacing-lg);
-    background-color: var(--bg-primary-color);
+    padding: var(--section-padding);
 }
 
-
 section .task-column {
-    flex-grow: 1;
-    background-color: var(--bg-secondary-color);
-    padding: var(--spacing-md);
+    flex: 1;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+    background-color: var(--bg-secondary-color);
+    padding: var(--spacing-md);
     border-radius: var(--border-radius-md);
-    transition: all 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: var(--transition-slow);
 }
 
 section .task-column.hover-over {
-    border: 2px dashed white;
-    scale: 1.05;
-
+    border: 2px dashed var(--border-hover-color);
+    transform: scale(var(--scale-hover));
 }
 
-section .task-column .heading  {
-    width: 100%;
+section .task-column .heading {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-weight: var(--font-semibold);
 }
 
 section .task-column .task {
-    font-size: 1.5rem;
-    font-weight: bold;
     background-color: var(--bg-task-color);
-    padding: var(--spacing-md);
+    padding: var(--task-padding);
     border-radius: var(--border-radius-md);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
-    cursor: grabbing;
+    font-size: var(--font-xl);
+    font-weight: var(--font-bold);
+    cursor: grab;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-medium);
+}
 
+section .task-column .task:active {
+    cursor: grabbing;
+}
+
+section .task-column .task:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+section .task-column .task h2 {
+    font-size: var(--font-lg);
+}
+
+section .task-column .task p {
+    font-size: var(--font-md);
+    font-weight: var(--font-normal);
+    color: var(--text-secondary-color);
 }
 
 section .task-column .task button {
     align-self: flex-end;
-    cursor: pointer;
-    padding: var(--spacing-xs) var(--spacing-sm);
     border: none;
-    border-radius: var(--border-radius-xs);
     outline: none;
     background-color: var(--bg-delete-color);
     color: var(--text-primary-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-xs);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+section .task-column .task button:hover {
+    filter: brightness(1.15);
+}
+
+
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal);
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal .bg {
+    position: absolute;
+    inset: 0;
+    background-color: var(--bg-modal-overlay);
+    backdrop-filter: blur(var(--blur-modal));
+}
+
+.modal .center {
+    position: relative;
+    z-index: var(--z-modal-content);
+    width: min(450px, 90%);
+    background-color: var(--bg-secondary-color);
+    padding: var(--modal-padding);
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.modal .center input,
+.modal .center textarea,
+.modal .center select {
+    width: 100%;
+    padding: var(--spacing-md);
+    background-color: var(--bg-input-color);
+    color: var(--text-primary-color);
+    border: 1px solid var(--border-primary-color);
+    border-radius: var(--border-radius-sm);
+    outline: none;
+    resize: none;
+    font-family: inherit;
+    transition: var(--transition-fast);
+}
+
+.modal .center textarea {
+    min-height: 120px;
+}
+
+.modal .center input:focus,
+.modal .center textarea:focus,
+.modal .center select:focus {
+    border-color: var(--border-hover-color);
+}
+
+.modal .center button {
+    border: none;
+    outline: none;
+    background-color: var(--bg-button-color);
+    color: var(--text-primary-color);
+    padding: var(--button-padding-y) var(--button-padding-x);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.modal .center button:hover {
+    filter: brightness(1.15);
+}
+
+
+
+@media (max-width: 768px) {
+    section {
+        flex-direction: column;
+    }
+
+    nav .left {
+        font-size: var(--font-xl);
+    }
+
+    .modal .center {
+        padding: var(--spacing-lg);
+    }
 }
